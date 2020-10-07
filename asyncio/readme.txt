@@ -1,4 +1,12 @@
-https://mp.weixin.qq.com/s/GgamzHPyZuSg45LoJKsofA
+阻塞
+非阻塞
+EventLoop + callback
+EventLoop + 协程
+EventLoop + 协程 & 对代码结构的优化
+
+
+
+
 1> 连接时设置为非阻塞，注册可写事件已经设置响应的回调
 2> 可写就绪，回调connected，解注册可写事件,发送数据，同时注册可读事件
 3> 可读就绪，接受数据，数据接收完成之后，注销可读事件
@@ -18,3 +26,7 @@ do_b()
 do_b() 依赖于do_a()的结果,先执行do_a() 然后执行do_b ,但是如果do_a是通过异步调用(事件回调方式)那么，
 do_a(do_b())
 [因为你不知道什么时候调用do_a，所以只能将do_b 作为参数传递给do_a,以便在调用do_a 时候调用do_b]
+
+
+参考
+https://mp.weixin.qq.com/s/GgamzHPyZuSg45LoJKsofA
